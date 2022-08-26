@@ -1,0 +1,56 @@
+﻿@model IEnumerable<JokesWebApp.Models.Joke>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JokeQuestion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.JokeAnswer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JokeQuestion)
+            </td>
+            <td>
+                <span id="@item.Id" class="hidden">
+                    @Html.DisplayFor(modelItem => item.JokeAnswer)
+                </span>
+                <button id="@("showHide" + item.Id)" onclick="showHide(@item.Id)" class="showHideBtn">Show</button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                <button "onclick=location.href='@JokesWebApp.Controllers.JokesController.Like( item.Id)'">Like</button> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
