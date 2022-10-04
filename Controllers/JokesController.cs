@@ -123,7 +123,7 @@ namespace JokesWebApp.Controllers
         [Microsoft.AspNetCore.Authorization.Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,JokeQuestion,JokeAnswer")] Joke joke)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,JokeQuestion,JokeAnswer,Author")] Joke joke)
         {
             if (id != joke.Id)
             {

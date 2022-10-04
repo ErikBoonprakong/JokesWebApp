@@ -45,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.Score)
             </td>
             <td>
-                <button "onclick=location.href='@JokesWebApp.Controllers.JokesController.Like( item.Id)'">Like</button> |
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+@*                <button "onclick=location.href='@JokesWebApp.Controllers.JokesController.Like( item.Id)'">Like</button> |
+*@                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
